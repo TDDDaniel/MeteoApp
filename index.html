@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MeteoApp</title>
+    <!-- Fontul Inter, încărcat din Google Fonts (grosimile 400, 600 și 700) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="hero">
+        <h1>MeteoApp</h1>
+        <p>Află vremea din orice oraș. Introdu țara și orașul, iar noi îți arătăm temperatura, umiditatea și vântul.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Caută o locație</h2>
+
+            <form id="location-form">
+                <div class="form-field">
+                    <label for="country">Țară</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="city">Oraș</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <button type="submit">Vezi vremea</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

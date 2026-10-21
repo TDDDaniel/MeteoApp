@@ -1,3 +1,147 @@
-body{
-    background-color: bisque;
+/*
+ * Stiluri comune pentru index.html și rezultate-meteo.html.
+ * Fontul Inter se încarcă din Google Fonts, printr-un <link> pus în <head>-ul fiecărei pagini.
+ * Dacă Inter nu se poate încărca, browserul trece la următorul font din lista font-family.
+ */
+
+/* ===== Culorile aplicației (le schimbi aici și se schimbă pe ambele pagini) ===== */
+:root {
+    --color-background: #f0f6ff;   /* fundalul paginii: albastru foarte deschis */
+    --color-hero: #dbeafe;         /* începutul gradientului din zona de sus */
+    --color-border: #bfdbfe;       /* marginea câmpurilor */
+    --color-primary: #2563eb;      /* titlul, butonul, conturul de focus */
+    --color-primary-dark: #1d4ed8; /* butonul când treci cu mouse-ul peste el */
+    --color-text: #1e293b;         /* textul principal */
+    --color-text-muted: #475569;   /* textul secundar (descrieri) */
+}
+
+/* Lățimea unui element include și padding-ul și bordura lui.
+   Fără asta, un câmp cu width: 100% plus padding ar ieși din card. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* ===== Zona de sus: titlul și descrierea ===== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(var(--color-hero), var(--color-background));
+}
+
+.hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--color-primary);
+}
+
+.hero p {
+    max-width: 32rem;
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+}
+
+/* ===== Conținutul principal ===== */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem 2rem;
+}
+
+/* Cardul alb: îl folosește formularul acum și cardul meteo mai târziu */
+.card {
+    width: 100%;
+    max-width: 28rem;
+    padding: 2rem 1.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(37, 99, 235, 0.1);
+}
+
+.card h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* ===== Formularul ===== */
+.form-field {
+    display: flex;
+    flex-direction: column; /* eticheta deasupra, câmpul dedesubt */
+    gap: 0.375rem;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font: inherit; /* câmpurile nu preiau singure fontul paginii, așa că îl cerem explicit */
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    color: white;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s; /* culoarea se schimbă lin, nu brusc */
+}
+
+button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Conturul albastru arată unde te afli când navighezi cu tastatura (tasta Tab) */
+input:focus,
+button:focus {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===== Ecrane de la 768px în sus: tabletă, laptop, monitor ===== */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    .card {
+        padding: 2.5rem;
+    }
+}
+
+/* ===== Telefoane foarte înguste ===== */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1.5rem 1rem;
+    }
 }
