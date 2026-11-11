@@ -120,6 +120,16 @@ button:focus {
     outline-offset: 2px;
 }
 
+/* ===== Rezultatul meteo (sub formular) ===== */
+.weather-result {
+    margin-top: 1.5rem;
+}
+
+/* Înainte de prima căutare div-ul e gol; îl ascundem ca să nu lase spațiu liber sub buton */
+.weather-result:empty {
+    display: none;
+}
+
 /* ===== Ecrane de la 768px în sus: tabletă, laptop, monitor ===== */
 @media (min-width: 768px) {
     .hero h1 {
